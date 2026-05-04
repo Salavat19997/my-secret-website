@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Салават Султаншин · Техподдержка & AI-инжиниринг</title>
+  <meta name="description" content="Султаншин Салават — эксперт техподдержки, продвинутая работа с DeepSeek, ИИ-промпты. Уютный лендинг.">
+  <!-- Фавикон яркий уютный SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFB347'/%3E%3Cstop offset='100%25' stop-color='%23F39C12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='46' fill='url(%23g)' stroke='%23D35400' stroke-width='2'/%3E%3Ctext x='50' y='69' font-size='44' font-family='Arial' font-weight='bold' fill='%23FFFFFF' text-anchor='middle'%3E✨%3C/text%3E%3C/svg%3E">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f2f0ea;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      line-height: 1.5;
+      color: #2c2b28;
+    }
+
+    :root {
+      --warm-orange: #e67e22;
+      --muted-orange: #d68c3c;
+      --warm-green: #7f8c5e;
+      --soft-yellow: #e9c46a;
+      --bg-light: #f4f3ef;
+      --card-bg: rgba(255, 254, 250, 0.85);
+      --shadow-sm: 0 20px 35px -12px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.03);
+      --shadow-hover: 0 25px 40px -14px rgba(100, 70, 30, 0.12);
+    }
+
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .bg-blur {
+      position: fixed;
+      top: -20%;
+      left: -10%;
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(circle, rgba(233,196,106,0.2) 0%, rgba(242,240,234,0) 70%);
+      z-index: -2;
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(90px);
+    }
+    .bg-blur-right {
+      top: 40%;
+      right: -15%;
+      left: auto;
+      background: radial-gradient(circle, rgba(127,140,94,0.18) 0%, rgba(242,240,234,0) 70%);
+      width: 80%;
+      height: 80%;
+    }
+
+    .section {
+      margin-bottom: 3.5rem;
+    }
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid var(--muted-orange);
+      padding-left: 1rem;
+      color: #3b3a37;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+      border: 1px solid #f0ede5;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: #ffe1b3;
+    }
+
+    .badge {
+      display: inline-flex;
+      background: #f1ede3;
+      padding: 0.25rem 0.75rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #5a4c2e;
+      margin-right: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .badge-warm {
+      background: rgba(230,126,34,0.12);
+      color: #bd6b1e;
+      border-left: 2px solid #e67e22;
+    }
+
+    .contact-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff8ef;
+      padding: 0.55rem 1.2rem;
+      border-radius: 60px;
+      border: 1px solid #ffe3be;
+    }
+
+    .btn-ai {
+      background: linear-gradient(135deg, #e9c46a20, #e67e2220);
+      border: 1px solid #e9c46a;
+      border-radius: 2rem;
+      padding: 0.6rem 1.4rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #8b5a2b;
+    }
+    .btn-ai:hover {
+      background: #e9c46a30;
+      border-color: #d68c3c;
+      transform: scale(0.97);
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate {
+      animation: fadeSlideUp 0.6s ease forwards;
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 2rem 0 0;
+      border-top: 1px solid #e4dfd5;
+      color: #8a7e6b;
+    }
+
+    @media (max-width: 700px) {
+      .app-container { padding: 1rem; }
+      .grid-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react,typescript">
+  // Делаем доступным useState из глобального React
+  const { useState } = React;
+
+  // Данные (полностью по вашему последнему сообщению)
+  const profile = {
+    fullName: 'Султаншин Салават',
+    genderAge: 'Мужчина, 29 лет',
+    birthDate: 'родился 1 августа 1996',
+    phone: '+7 (977) 383-17-85',
+    location: 'Чусовой',
+    citizenship: 'Россия',
+    workPermit: 'есть разрешение на работу: Россия',
+    remoteReady: true,
+    travelReady: 'Не могу (командировки)',
+    desiredJob: 'Специалист технической поддержки',
+    employmentType: 'полная занятость',
+    workFormat: 'удалённо',
+    travelTime: 'не имеет значения',
+    incomeLevel: 'не указан',
+  };
+
+  const experiences = [
+    {
+      company: 'ООО "Открытая линия"',
+      period: 'Июнь 2022 — Июль 2025',
+      duration: '3 года 2 месяца',
+      role: 'Оператор технической поддержки',
+      location: 'Чусовой',
+      description: [
+        'Техническая поддержка клиентов по вопросам входа в личный кабинет, неработающий тест курса, консультация по массовым сбоям (DDoS-атаки), перенос очных мероприятий.',
+        'Скриншоты консоли логов для передачи на другую линию поддержки.',
+        'Выявление багов (воспроизведение шагов пользователей).',
+        'Проведение регулярного мониторинга работоспособности и производительности ПО.'
+      ]
+    },
+    {
+      company: 'Яндекс (Яндекс.Go)',
+      period: 'Февраль 2020 — Сентябрь 2020',
+      duration: '8 месяцев',
+      role: 'Специалист службы поддержки клиентов Яндекс.Go',
+      location: 'Москва',
+      description: [
+        'Поддержка клиентов сервиса такси: некорректные списания (досписание, холдирование).',
+        'Конфликты водителей с пассажирами, помощь пассажирам (если водитель поругался и высадил пассажира, не довезя до точки Б).'
+      ]
+    }
+  ];
+
+  const educationList = [
+    {
+      title: 'Чусовской индустриальный техникум',
+      year: '2016',
+      description: 'Автослесарь, оператор заправочных станций · Среднее специальное'
+    }
+  ];
+
+  const skills = [
+    { name: 'Сборка ПК', level: 'Продвинутый' },
+    { name: 'Helpdesk', level: 'Продвинутый' },
+    { name: 'Настройка ПК', level: 'Продвинутый' },
+    { name: 'Ремонт ПК', level: 'Продвинутый' },
+    { name: 'Деловая переписка', level: 'Продвинутый' },
+    { name: 'Техническая поддержка', level: 'Средний' },
+    { name: 'HTML/CSS3/JavaScript', level: 'Средний' },
+    { name: 'Firebase / netlify / хостинг', level: 'Средний' },
+    { name: 'NoSQL', level: 'Средний' },
+    { name: 'Figma', level: 'Средний' },
+    { name: 'Продвинутая работа с ИИ (deepseek, gemeni, промпт-инжиниринг)', level: 'Продвинутый' },
+  ];
+
+  const SkillBadges = ({ skills }) => (
+    <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(210px, auto))' }}>
+      {skills.map((skill, idx) => (
+        <div key={idx} className="card" style={{ padding: '1rem 1.2rem' }}>
+          <span style={{ fontWeight: 600, fontSize: '1rem' }}>{skill.name}</span>
+          <div style={{ marginTop: '0.5rem' }}>
+            <span className={`badge ${skill.level === 'Продвинутый' ? 'badge-warm' : ''}`}>{skill.level}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
+  const App = () => {
+    const [aiPromptTip, setAiPromptTip] = useState("Нажми, чтобы получить промпт для техподдержки ✨");
+
+    const handleGeneratePrompt = () => {
+      const prompts = [
+        "🔍 DeepSeek-промпт: «Ты — L2 инженер поддержки. Клиент жалуется на DDoS. Опиши чеклист: сбор HAR, согласование с отделом сетевой безопасности, временные решения. Выдай ответ вежливо и информативно.»",
+        "⚙️ Промпт для анализа багов: «Проанализируй логи консоли, найди паттерны ошибок 5xx. Предложи гипотезу и запрос разработчикам.»",
+        "📞 AI-скрипт: «Смягчи конфликт с пассажиром, который был высажен. Предложи компенсацию и алгоритм для водителя.»",
+        "🧠 «Сгенерируй базу знаний: типовые сбои авторизации + решение на основе логов». (Использую DeepSeek ежедневно)"
+      ];
+      setAiPromptTip(prompts[Math.floor(Math.random() * prompts.length)]);
+    };
+
+    return (
+      <div>
+        <div className="bg-blur"></div>
+        <div className="bg-blur bg-blur-right"></div>
+        <div className="app-container">
+          {/* Шапка */}
+          <div className="section animate">
+            <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', alignItems: 'center', gap: '1rem' }}>
+              <div>
+                <h1 style={{ fontSize: '2.8rem', fontWeight: 600, letterSpacing: '-0.02em', color: '#3c3a35' }}>{profile.fullName}</h1>
+                <p style={{ fontSize: '1.25rem', color: '#9b7b4c' }}>Специалист технической поддержки • AI-эксперт</p>
+              </div>
+              <div className="contact-icon">
+                📞 <strong>{profile.phone}</strong> <span style={{ fontSize: '0.75rem', background: '#fce5c1', borderRadius: '20px', padding: '0.2rem 0.6rem' }}>предпочитаемый способ связи</span>
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', marginTop: '1.2rem' }}>
+              <span className="badge">🧔 {profile.genderAge}, {profile.birthDate}</span>
+              <span className="badge">📍 {profile.location}</span>
+              <span className="badge">🇷🇺 {profile.citizenship}, {profile.workPermit}</span>
+              <span className="badge">🏠 Готов к удалённой работе</span>
+              <span className="badge">✈️ {profile.travelReady}</span>
+            </div>
+          </div>
+
+          {/* Желаемая должность + ИИ блок */}
+          <div className="section">
+            <div className="grid-cards">
+              <div className="card animate">
+                <h3 style={{ fontSize: '1.6rem', fontWeight: 500, color: '#c97e2c' }}>🎯 {profile.desiredJob}</h3>
+                <div style={{ marginTop: '0.8rem' }}>
+                  <p><strong>Тип занятости:</strong> {profile.employmentType}</p>
+                  <p><strong>Формат работы:</strong> {profile.workFormat}</p>
+                  <p><strong>Время в пути:</strong> {profile.travelTime}</p>
+                  <p><strong>Уровень дохода:</strong> {profile.incomeLevel}</p>
+                  <p><strong>Командировки:</strong> ❌ Не могу</p>
+                </div>
+              </div>
+              <div className="card animate" style={{ background: '#fefbf5' }}>
+                <h3>🤖 AI-экспертиза (DeepSeek + промпты)</h3>
+                <p style={{ marginTop: '0.5rem' }}>Продвинутая работа с ИИ: генерация диагностических скриптов, автоматизация ответов, анализ логов через LLM, создание промптов для ускорения техподдержки.</p>
+                <button onClick={handleGeneratePrompt} className="btn-ai" style={{ marginTop: '1rem' }}>✨ Случайный промпт от Салавата</button>
+                <div style={{ marginTop: '1rem', background: '#fff0df', borderRadius: '1rem', padding: '0.8rem', fontSize: '0.9rem', borderLeft: '4px solid #e9c46a' }}>
+                  💡 {aiPromptTip}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Опыт работы */}
+          <div className="section">
+            <h2 className="section-title">💼 Опыт работы · 3 года 10 месяцев</h2>
+            <div className="grid-cards">
+              {experiences.map((exp, idx) => (
+                <div className="card" key={idx}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+                    <h3>{exp.company}</h3>
+                    <span className="badge">{exp.duration}</span>
+                  </div>
+                  <p style={{ color: '#bd6b1e' }}>{exp.role} • {exp.period}</p>
+                  <ul style={{ marginTop: '0.8rem', paddingLeft: '1.2rem' }}>
+                    {exp.description.map((item, i) => (
+                      <li key={i} style={{ marginBottom: '0.5rem', fontSize: '0.9rem' }}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Навыки */}
+          <div className="section">
+            <h2 className="section-title">🧰 Ключевые навыки</h2>
+            <SkillBadges skills={skills} />
+          </div>
+
+          {/* Образование */}
+          <div className="section">
+            <h2 className="section-title">🎓 Образование</h2>
+            <div className="card" style={{ maxWidth: '600px' }}>
+              {educationList.map((edu, idx) => (
+                <div key={idx}>
+                  <h3>{edu.title}</h3>
+                  <p>{edu.year} · {edu.description}</p>
+                </div>
+              ))}
+              <div className="badge-warm badge" style={{ marginTop: '1rem' }}>Среднее специальное</div>
+            </div>
+          </div>
+
+          {/* Работа с DeepSeek - финальный блок */}
+          <div className="section">
+            <div className="card" style={{ background: '#fcf8f0', border: '1px solid #ebdbbb' }}>
+              <h2 style={{ fontSize: '1.6rem', marginBottom: '0.75rem' }}>🌟 Мастерство работы с DeepSeek и генеративным ИИ</h2>
+              <p>За годы работы в техподдержке я внедрил использование LLM (DeepSeek, Gemini) для ускорения разрешения инцидентов: автоматическое составление ответов, создание промптов для поиска корня ошибки в логах, генерация постмортемов. Мой промпт-инжиниринг позволяет моделировать диалоги и обучать младших специалистов. <strong>Я умею работать с DeepSeek профессионально:</strong> от базовых запросов до сложных цепочек рассуждений (CoT) для анализа DDoS-атак и багов.</p>
+              <div style={{ marginTop: '1rem', padding: '1rem', background: '#fff5e6', borderRadius: '1rem' }}>
+                ⚡ <strong>Пример промпта из практики:</strong> «DeepSeek, ты — senior support. Клиент сообщает о невозможности войти в ЛК после DDOS. Собери checklist проверки прокси, кэша, сессий. Выдай ответ для пользователя и внутреннюю заметку для DevOps.»
+              </div>
+              <p style={{ marginTop: '1rem' }}>✅ Постоянно использую AI для мониторинга, воспроизведения багов, составления документации. Владею продвинутой работой с ИИ (deepseek, gemeni) на высшем уровне.</p>
+            </div>
+          </div>
+
+          {/* Контакты и техподдержка */}
+          <div className="section">
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+              <div>
+                <h2 className="section-title" style={{ borderLeftColor: '#7f8c5e' }}>📞 Контакты</h2>
+                <div className="contact-icon" style={{ background: '#fff7ef' }}>
+                  📱 {profile.phone}  <span className="badge" style={{ background: '#ffe6c2' }}>Telegram / WhatsApp</span>
+                </div>
+                <p style={{ marginTop: '0.8rem', fontSize: '0.85rem' }}>Предпочитаемый способ связи: мобильный телефон (быстрый отклик)</p>
+              </div>
+              <div className="card" style={{ padding: '1rem', background: 'rgba(255, 244, 226, 0.7)' }}>
+                <span>🛠️ Техподдержка + AI-ассистент — всегда внедряю инновации. Для связи доступен 24/7 удалённо.</span>
+              </div>
+            </div>
+          </div>
+
+          <footer>
+            <p>Резюме обновлено 4 мая 2026 в 17:42 • Готов к удалённой работе • Не готов к командировкам</p>
+            <p>🏆 Продвинутые навыки работы с DeepSeek, искусственным интеллектом и промпт-инжинирингом — моя суперсила.</p>
+          </footer>
+        </div>
+      </div>
+    );
+  };
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
